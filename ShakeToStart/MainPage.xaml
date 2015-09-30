@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="ShakeToStart.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShakeToStart.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="NavigationItemTemplate" x:DataType="local:NavigationItem">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  >
+                <SymbolIcon Symbol="{x:Bind symbol}" Height="48"/>
+                <TextBlock Text="{x:Bind name}" Margin="24,0,0,0" VerticalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Navigation Bar and propeties -->
+        <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <SplitView.Pane>
+                <Grid x:Name="svCollapsed" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btHamburger" Background="Coral" Width="48" Height="48" Click="btHamburger_Click" />
+                    <TextBlock Text="App Content" x:Name="svHeader" FontWeight="Bold" Margin="60,12,0,0"/>
+                    <ListView x:Name="svItemList" ItemClick="svItemList_ItemClick" IsItemClickEnabled="True" 
+                              ItemsSource="{x:Bind navigationLinks}" ItemTemplate="{StaticResource NavigationItemTemplate}" 
+                              SelectionMode="None" Grid.Row="1"  VerticalAlignment="Stretch" Margin="0,12,0,0"  />
+                </Grid>
+            </SplitView.Pane>
+            <!-- Content on the main screen -->
+            <Frame x:Name="MainFrame">
+
+            </Frame>
+        </SplitView>
+    </Grid>
+</Page>
