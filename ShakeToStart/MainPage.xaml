@@ -18,15 +18,20 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!-- Navigation Bar and propeties -->
-        <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay" VerticalAlignment="Top" HorizontalAlignment="Left" >
+        <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay"
+                   VerticalAlignment="Top" HorizontalAlignment="Left" >
             <SplitView.Pane>
                 <Grid x:Name="svCollapsed" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Button x:Name="btHamburger" Background="Coral" Width="48" Height="48" Click="btHamburger_Click" />
-                    <TextBlock Text="App Content" x:Name="svHeader" FontWeight="Bold" Margin="60,12,0,0"/>
+                    <Button x:Name="btHamburger" Background="Blue" Width="48" Height="48" Click="btHamburger_Click">
+                        <Button.Content>
+                            <FontIcon x:Name="hamburger" FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"></FontIcon>
+                        </Button.Content>
+                    </Button>
+                    <TextBlock Text="Shake to Start Menu" x:Name="svHeader" FontWeight="Bold" Margin="60,12,0,0"/>
                     <ListView x:Name="svItemList" ItemClick="svItemList_ItemClick" IsItemClickEnabled="True" 
                               ItemsSource="{x:Bind navigationLinks}" ItemTemplate="{StaticResource NavigationItemTemplate}" 
                               SelectionMode="None" Grid.Row="1"  VerticalAlignment="Stretch" Margin="0,12,0,0"  />

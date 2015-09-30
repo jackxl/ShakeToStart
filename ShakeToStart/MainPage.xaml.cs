@@ -34,6 +34,7 @@ namespace ShakeToStart
             new NavigationItem() {name = "Home", symbol = Symbol.Home, pageFrame = typeof(Home) },
             new NavigationItem() {name = "UriManager", symbol = Symbol.Globe, pageFrame = typeof(UriManager) },
             new NavigationItem() {name = "Advanced Seddings", symbol = Symbol.Setting, pageFrame = typeof(AdvancedSettings)},
+            new NavigationItem() {name = "Help", symbol = Symbol.Help, pageFrame = typeof(Help) }
         };
 
         /// <summary>

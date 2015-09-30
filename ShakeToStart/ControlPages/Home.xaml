@@ -8,6 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="tb" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0">        
+            <TextBlock x:Name="tbHomeHeader" Text="Home"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+            <TextBlock x:Name="tb" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
+        </StackPanel>
+        <RelativePanel Grid.Row="1">
+            <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8"/>
+            <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable" RelativePanel.RightOf="btnEnable" Margin="8,8,8,8"/>
+        </RelativePanel>
+        
     </Grid>
 </Page>

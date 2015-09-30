@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <StackPanel>
+        <TextBlock x:Name="tbUriManagerHeader" Text="Uri Manager"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    </StackPanel>
 </Page>
