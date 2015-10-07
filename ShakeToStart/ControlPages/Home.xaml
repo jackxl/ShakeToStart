@@ -12,6 +12,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <StackPanel Grid.Row="0">        
@@ -29,7 +30,18 @@
             <ComboBox x:Name="cbUriTwo" RelativePanel.Below="cbUriOne" RelativePanel.RightOf="tbUriTwo" Width="128"/>
             <TextBlock x:Name="tbUriThree" Text="Uri 3: " Margin="0,8,8,0" RelativePanel.Below="tbUriTwo"/>
             <ComboBox x:Name="cbUriThree" RelativePanel.RightOf="tbUriThree" RelativePanel.Below="cbUriTwo" Width="128"/>
+
+
         </RelativePanel>
+
+        <StackPanel Grid.Row="3" x:Name="StatusPanel" Orientation="Vertical">
+            <Border x:Name="StatusBorder" Margin="0,0,0,0">
+                <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
+                    <TextBlock x:Name="StatusBlock" FontWeight="Bold" 
+                                   MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
 
     </Grid>
 </Page>

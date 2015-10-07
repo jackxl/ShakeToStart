@@ -8,6 +8,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -20,6 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ShakeToStart
 {
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -45,6 +48,10 @@ namespace ShakeToStart
         {
             this.InitializeComponent();
             this.MainFrame.Navigate(typeof(Home));
+
+
+            var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
+            splitView.Height = bounds.Height;
         }
 
         #region EVENTS

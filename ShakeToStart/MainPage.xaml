@@ -19,7 +19,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!-- Navigation Bar and propeties -->
         <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay"
-                   VerticalAlignment="Top" HorizontalAlignment="Left" >
+                   VerticalAlignment="Top" HorizontalAlignment="Left" Height="auto" >
             <SplitView.Pane>
                 <Grid x:Name="svCollapsed" >
                     <Grid.RowDefinitions>
@@ -38,7 +38,7 @@
                 </Grid>
             </SplitView.Pane>
             <!-- Content on the main screen -->
-            <Frame x:Name="MainFrame">
+            <Frame x:Name="MainFrame" Height="Auto">
 
             </Frame>
         </SplitView>
