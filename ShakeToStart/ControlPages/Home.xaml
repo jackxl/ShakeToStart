@@ -16,12 +16,20 @@
         
         <StackPanel Grid.Row="0">        
             <TextBlock x:Name="tbHomeHeader" Text="Home"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
-            <TextBlock x:Name="tb" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
+            <TextBlock x:Name="tbDescriptionBody" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
         </StackPanel>
         <RelativePanel Grid.Row="1">
-            <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8"/>
-            <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable" RelativePanel.RightOf="btnEnable" Margin="8,8,8,8"/>
+            <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8" Click="btnEnable_Click" />
+            <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable"  RelativePanel.RightOf="btnEnable" Margin="8,8,8,8" HorizontalAlignment="Right" RelativePanel.AlignRightWithPanel="True" Click="btnDisable_Click"/>
         </RelativePanel>
-        
+        <RelativePanel Grid.Row="2" Margin="8,8,8,8">            
+            <TextBlock x:Name="tbUriOne" Text="Uri 1: " Margin="0,8,8,0"/>
+            <ComboBox x:Name="cbUriOne" RelativePanel.RightOf="tbUriOne" Width="128"/>
+            <TextBlock x:Name="tbUriTwo" Text="Uri 2: " Margin="0,8,8,0" RelativePanel.Below="tbUriOne"/>
+            <ComboBox x:Name="cbUriTwo" RelativePanel.Below="cbUriOne" RelativePanel.RightOf="tbUriTwo" Width="128"/>
+            <TextBlock x:Name="tbUriThree" Text="Uri 3: " Margin="0,8,8,0" RelativePanel.Below="tbUriTwo"/>
+            <ComboBox x:Name="cbUriThree" RelativePanel.RightOf="tbUriThree" RelativePanel.Below="cbUriTwo" Width="128"/>
+        </RelativePanel>
+
     </Grid>
 </Page>

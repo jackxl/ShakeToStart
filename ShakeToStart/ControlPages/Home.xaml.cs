@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -17,6 +18,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ShakeToStart.ControlPages
 {
+//    private ObservableCollection<String> UriCollection 
+
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -25,6 +29,16 @@ namespace ShakeToStart.ControlPages
         public Home()
         {
             this.InitializeComponent();
+        }
+
+        private void btnEnable_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDisable_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
