@@ -115,6 +115,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\NavigationItem.cs" />
+    <Compile Include="Model\SymbolItem.cs" />
     <Compile Include="Model\UriItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

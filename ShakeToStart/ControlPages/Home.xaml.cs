@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShakeToStart.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -18,16 +19,17 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ShakeToStart.ControlPages
 {
-//    private ObservableCollection<String> UriCollection 
-
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Home : Page
     {
+        private ObservableCollection<UriItem> uriSelection = new ObservableCollection<UriItem>();
+
         public Home()
         {
+            uriSelection = App.uriItemsAvailable;
             this.InitializeComponent();
         }
 
@@ -37,6 +39,11 @@ namespace ShakeToStart.ControlPages
         }
 
         private void btnDisable_Click(object sender, RoutedEventArgs e)
+        {
+            uriSelection.Add(new UriItem() { name = "Google", uri = new Uri("http://Google.com"), symbol = Symbol.Globe });
+        }
+
+        private void cbUri_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
 
         }

@@ -8,11 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock x:Name="tbAdvancedSettingsHeader" Text="Advanced Seddings"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
-
+        <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="tbAdvancedSettingsHeader" Text="Advanced Settings"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+            <TextBox InputScope="Number"></TextBox>
+            <TextBox InputScope="Number"></TextBox>
+            <TextBox InputScope="Number"></TextBox>
         </StackPanel>
-        
-        
     </Grid>
 </Page>
