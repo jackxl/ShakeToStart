@@ -36,7 +36,11 @@
 
         <StackPanel Margin="8,8,8,8" Orientation="Vertical">
             <TextBox x:Name="tbName" PlaceholderText="Name" Margin="8,8,8,8"/>
-            <TextBox x:Name="tbUri" PlaceholderText="Uri Path" Margin="8,8,8,8"/>
+            <TextBox x:Name="tbUri" PlaceholderText="Uri Path" Margin="8,8,8,8">
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Name="tipUri" Visibility="Collapsed"/>
+                </ToolTipService.ToolTip>
+            </TextBox>
             <StackPanel Orientation="Horizontal">
                 <ComboBox x:Name="cbSymbols" Width="48" 
                           ItemsSource="{x:Bind symbolList}" 
@@ -48,8 +52,5 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- <ComboBox x:Name="cbTest" ItemsSource="{x:Bind uriSelection}" ItemTemplate="{StaticResource UriItemTemplate}"/> -->
-
-        
     </StackPanel>
 </Page>

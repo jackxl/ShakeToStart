@@ -55,13 +55,22 @@ namespace ShakeToStart.ControlPages
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             SymbolItem symbolitem = (SymbolItem)cbSymbols.SelectedItem;
-            UriItem item = new UriItem()
+            try
             {
-                name = tbName.Text,
-                uri = new Uri(tbUri.Text),
-                symbol = symbolitem.symbol
-            };
-            uriSelection.Add(item);
+                UriItem item = new UriItem()
+                {
+                    name = tbName.Text,
+                    uri = new Uri(tbUri.Text),
+                    symbol = symbolitem.symbol
+                };
+                uriSelection.Add(item);
+            }
+            catch
+            {
+                
+            }
+
+
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
