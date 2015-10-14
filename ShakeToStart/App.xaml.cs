@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ShakeToStart.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,6 +24,12 @@ namespace ShakeToStart
     /// </summary>
     sealed partial class App : Application
     {
+        public static ObservableCollection<UriItem> uriItemsAvailable = new ObservableCollection<UriItem>()
+        {
+            new UriItem() { name = "Bing", uri = new Uri("http://Bing.com"), symbol = Symbol.Globe },
+            new UriItem() { name = "Facebook", uri = new Uri("http://Facebook.com"), symbol = Symbol.PhoneBook },
+        };
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

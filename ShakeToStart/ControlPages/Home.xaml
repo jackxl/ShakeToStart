@@ -2,10 +2,19 @@
     x:Class="ShakeToStart.ControlPages.Home"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ShakeToStart.ControlPages"
+    xmlns:local="using:ShakeToStart.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="UriItemTemplate" x:DataType="local:UriItem">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  >
+                <SymbolIcon Symbol="{x:Bind symbol}"/>
+                <TextBlock Text="{x:Bind name}" Margin="24,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -14,7 +23,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
         <StackPanel Grid.Row="0">        
             <TextBlock x:Name="tbHomeHeader" Text="Home"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
             <TextBlock x:Name="tbDescriptionBody" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
@@ -23,15 +31,15 @@
             <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8" Click="btnEnable_Click" />
             <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable"  RelativePanel.RightOf="btnEnable" Margin="8,8,8,8" HorizontalAlignment="Right" RelativePanel.AlignRightWithPanel="True" Click="btnDisable_Click"/>
         </RelativePanel>
-        <RelativePanel Grid.Row="2" Margin="8,8,8,8">            
-            <TextBlock x:Name="tbUriOne" Text="Uri 1: " Margin="0,8,8,0"/>
-            <ComboBox x:Name="cbUriOne" RelativePanel.RightOf="tbUriOne" Width="128"/>
-            <TextBlock x:Name="tbUriTwo" Text="Uri 2: " Margin="0,8,8,0" RelativePanel.Below="tbUriOne"/>
-            <ComboBox x:Name="cbUriTwo" RelativePanel.Below="cbUriOne" RelativePanel.RightOf="tbUriTwo" Width="128"/>
-            <TextBlock x:Name="tbUriThree" Text="Uri 3: " Margin="0,8,8,0" RelativePanel.Below="tbUriTwo"/>
-            <ComboBox x:Name="cbUriThree" RelativePanel.RightOf="tbUriThree" RelativePanel.Below="cbUriTwo" Width="128"/>
-
-
+        <RelativePanel Grid.Row="2" Margin="8,8,8,8">       
+            <TextBlock x:Name="tbUriX" Text="Uri x: " Margin="0,16,8,0"/>
+            <ComboBox x:Name="cbUriX" ItemTemplate="{StaticResource UriItemTemplate}" 
+                      ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriX" 
+                      Width="256" Margin="0,8,0,0"/>
+            <TextBlock x:Name="tbUriY" Text="Uri y: " Margin="0,16,8,0" RelativePanel.Below="tbUriX"/>
+            <ComboBox x:Name="cbUriY" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.Below="cbUriX" RelativePanel.RightOf="tbUriY" Width="256" Margin="0,8,0,0"/>
+            <TextBlock x:Name="tbUriZ" Text="Uri z: " Margin="0,16,8,0" RelativePanel.Below="tbUriY"/>
+            <ComboBox x:Name="cbUriZ" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriZ" RelativePanel.Below="cbUriY" Width="256" Margin="0,8,0,0"/>
         </RelativePanel>
 
         <StackPanel Grid.Row="3" x:Name="StatusPanel" Orientation="Vertical">
@@ -42,6 +50,5 @@
                 </ScrollViewer>
             </Border>
         </StackPanel>
-
     </Grid>
 </Page>

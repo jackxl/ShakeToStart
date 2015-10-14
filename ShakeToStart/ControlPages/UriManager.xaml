@@ -3,11 +3,54 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ShakeToStart.ControlPages"
+    xmlns:data="using:ShakeToStart.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <StackPanel>
+
+    <Page.Resources>
+        <DataTemplate x:Key="UriItemTemplate" x:DataType="data:UriItem">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  >
+                <SymbolIcon Symbol="{x:Bind symbol}"/>
+                <TextBlock Text="{x:Bind name}" Margin="24,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="UriListViewTemplate" x:DataType="data:UriItem">
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="Cancel"/>
+                <TextBlock Text="{x:Bind name}" Margin="16,0,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="SymbolListTemplate" x:DataType="data:SymbolItem">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <SymbolIcon Symbol="{x:Bind symbol}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="tbUriManagerHeader" Text="Uri Manager"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+        <TextBlock x:Name="tbUriListDescription" Text="You can remove your uri's here." Margin="8,8,8,8"/>
+        
+        <ListView x:Name="lvRemove" IsItemClickEnabled="True" MaxHeight="256" Height="256" ItemsSource="{x:Bind uriSelection}" ItemTemplate="{StaticResource UriListViewTemplate}" ItemClick="ListView_ItemClick" Margin="8,8,8,8"/>
+
+        <StackPanel Margin="8,8,8,8" Orientation="Vertical">
+            <TextBox x:Name="tbName" PlaceholderText="Name" Margin="8,8,8,8"/>
+            <TextBox x:Name="tbUri" PlaceholderText="Uri Path" Margin="8,8,8,8">
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Name="tipUri" Visibility="Collapsed"/>
+                </ToolTipService.ToolTip>
+            </TextBox>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="cbSymbols" Width="48" 
+                          ItemsSource="{x:Bind symbolList}" 
+                          ItemTemplate="{StaticResource SymbolListTemplate}" 
+                          Margin="8,8,8,8"></ComboBox>
+                <Button Margin="8,8,8,8" Click="AddButton_Click">
+                    <SymbolIcon Symbol="Add"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
 
     </StackPanel>
 </Page>
