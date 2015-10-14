@@ -60,6 +60,26 @@ namespace ShakeToStart.ControlPages
             }
         }
 
+        private void cbUri_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender.GetType() != typeof(ComboBox))
+                return;
+            var obj = sender as ComboBox;
+            var item = (UriItem)obj.SelectedItem;
+            switch (obj.Name)
+            {
+                case "cbUriX":
+                    ApplicationData.Current.LocalSettings.Values["xUri"] = item.uri.ToString();
+                    break;
+                case "cbUriY":
+                    ApplicationData.Current.LocalSettings.Values["yUri"] = item.uri.ToString();
+                    break;
+                case "cbUriZ":
+                    ApplicationData.Current.LocalSettings.Values["zUri"] = item.uri.ToString();
+                    break;
+            }
+        }
+
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -283,5 +303,7 @@ namespace ShakeToStart.ControlPages
                 StatusPanel.Visibility = Visibility.Collapsed;
             }
         }
+
+
     }
 }

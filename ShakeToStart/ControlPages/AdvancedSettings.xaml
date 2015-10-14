@@ -7,26 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="gvAdvancedSettings" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
             <TextBlock x:Name="tbAdvancedSettingsHeader" Grid.Row="0" Text="Advanced Settings"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
         <StackPanel Grid.Row="1" Margin="8,8,8,0">
             <TextBlock Text="Threshold"/>
-            <TextBox InputScope="Number"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbThreshold" InputScope="Number"></TextBox>
+            </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="8,8,8,0">
             <TextBlock Text="Measurement interval"/>
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox InputScope="Number" Grid.Column="0"></TextBox>
+                <TextBox x:Name="tbMeasurementInterval" InputScope="Number" Grid.Column="0"></TextBox>
                 <TextBlock Text="ms" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
             </Grid>
         </StackPanel>
@@ -34,12 +43,21 @@
             <TextBlock Text="Sleep time"/>
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>                
-                <TextBox InputScope="Number" Grid.Column="0"></TextBox>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbSleepTime" InputScope="Number" Grid.Column="0"></TextBox>
                 <TextBlock Text="s" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
             </Grid>
         </StackPanel>
+        <StackPanel Grid.Row="4" Margin="8,8,8,8">
+            <Button Content="Apply settings" Click="Apply_Button_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="spEmptySpace" Grid.Row="5">
+            <!-- fill empty space -->
+        </StackPanel>
+        
+        <Button Grid.Row="6" Content="Reset to default" Margin="8,8,8,8" Click="Reset_Button_Click"></Button>
+
     </Grid>
 </Page>

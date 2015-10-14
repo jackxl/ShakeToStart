@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">        
             <TextBlock x:Name="tbHomeHeader" Text="Home"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
-            <TextBlock x:Name="tbDescriptionBody" Text="Shake to start, starts an app whenever you shake your phone in a certain direction. The direction you shake your phone in will start a different app. The settings are all costumizable. Before you can use the app you have to 'ENABLE' background tasks (button below)." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
+            <TextBlock x:Name="tbDescriptionBody" Text="Before you start you have to press enable." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
         </StackPanel>
         <RelativePanel Grid.Row="1">
             <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8" Click="btnEnable_Click" />
@@ -35,11 +35,11 @@
             <TextBlock x:Name="tbUriX" Text="Uri x: " Margin="0,16,8,0"/>
             <ComboBox x:Name="cbUriX" ItemTemplate="{StaticResource UriItemTemplate}" 
                       ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriX" 
-                      Width="256" Margin="0,8,0,0"/>
+                      Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged" />
             <TextBlock x:Name="tbUriY" Text="Uri y: " Margin="0,16,8,0" RelativePanel.Below="tbUriX"/>
-            <ComboBox x:Name="cbUriY" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.Below="cbUriX" RelativePanel.RightOf="tbUriY" Width="256" Margin="0,8,0,0"/>
+            <ComboBox x:Name="cbUriY" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.Below="cbUriX" RelativePanel.RightOf="tbUriY" Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
             <TextBlock x:Name="tbUriZ" Text="Uri z: " Margin="0,16,8,0" RelativePanel.Below="tbUriY"/>
-            <ComboBox x:Name="cbUriZ" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriZ" RelativePanel.Below="cbUriY" Width="256" Margin="0,8,0,0"/>
+            <ComboBox x:Name="cbUriZ" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriZ" RelativePanel.Below="cbUriY" Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
         </RelativePanel>
 
         <StackPanel Grid.Row="3" x:Name="StatusPanel" Orientation="Vertical">

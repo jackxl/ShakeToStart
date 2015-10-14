@@ -114,6 +114,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AppConfiguration.cs" />
     <Compile Include="Model\NavigationItem.cs" />
     <Compile Include="Model\SymbolItem.cs" />
     <Compile Include="Model\UriItem.cs" />
