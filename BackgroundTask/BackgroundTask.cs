@@ -14,7 +14,7 @@ using Windows.Storage;
 
 namespace BackgroundTask
 {
-    public sealed class Scenario1_BackgroundTask : IBackgroundTask, IDisposable
+    public sealed class BackgroundTask : IBackgroundTask, IDisposable
     {
         private Accelerometer Accelerometer;
         private BackgroundTaskDeferral Deferral;

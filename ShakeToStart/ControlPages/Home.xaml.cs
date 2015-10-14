@@ -32,7 +32,7 @@ namespace ShakeToStart.ControlPages
     public sealed partial class Home : Page
     {
         public static String TASKNAME = "ShakeToStart BackgroundTask";
-        public static String TASKENTRYPOINT = "BackgroundTask.Scenario1_BackgroundTask";
+        public static String TASKENTRYPOINT = "BackgroundTask.BackgroundTask";
 
         private Accelerometer Accelerometer;
         private DeviceUseTrigger _deviceUseTrigger;
