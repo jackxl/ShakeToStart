@@ -31,6 +31,9 @@ namespace ShakeToStart.ControlPages
     /// </summary>
     public sealed partial class Home : Page
     {
+        public static String TASKNAME = "ShakeToStart BackgroundTask";
+        public static String TASKENTRYPOINT = "BackgroundTask.Scenario1_BackgroundTask";
+
         private Accelerometer Accelerometer;
         private DeviceUseTrigger _deviceUseTrigger;
 
@@ -144,8 +147,8 @@ namespace ShakeToStart.ControlPages
             // Register the background task.
             var backgroundTaskBuilder = new BackgroundTaskBuilder()
             {
-                Name = BackgroundTask.TASKNAME,
-                TaskEntryPoint = BackgroundTask.TASKENTRYPOINT
+                Name = TASKNAME,
+                TaskEntryPoint = TASKENTRYPOINT
             };
 
             backgroundTaskBuilder.SetTrigger(_deviceUseTrigger);
@@ -204,7 +207,7 @@ namespace ShakeToStart.ControlPages
         {
             foreach (var backgroundTask in BackgroundTaskRegistration.AllTasks.Values)
             {
-                if (backgroundTask.Name == BackgroundTask.TASKNAME)
+                if (backgroundTask.Name == TASKNAME)
                 {
                     ((BackgroundTaskRegistration)backgroundTask).Unregister(true);
                     break;

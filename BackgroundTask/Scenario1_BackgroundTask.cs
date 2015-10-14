@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) Microsoft. All rights reserved.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +12,10 @@ using Windows.Devices.Sensors;
 using Windows.Foundation;
 using Windows.Storage;
 
-
-namespace ShakeToStart
+namespace BackgroundTask
 {
-    public sealed class BackgroundTask : IBackgroundTask, IDisposable
+    public sealed class Scenario1_BackgroundTask : IBackgroundTask, IDisposable
     {
-        public static String TASKNAME = "ShakeToStart_BackgroundTask";
-        public static String TASKENTRYPOINT = "BackgroundTask";
-
         private Accelerometer Accelerometer;
         private BackgroundTaskDeferral Deferral;
         private ulong SampleCount;
@@ -172,9 +170,9 @@ namespace ShakeToStart
             {
                 appHasLaunched = checkIfPhoneHasBeenShaken();
             }
-
+            
             // when checkIfPhoneHasBeenShaken has been run it returns a bool. this bool tels if it has launched an app or not.
-            if (appHasLaunched)
+            if(appHasLaunched)
             {
                 //when an app has been lauched the reportinterval gets set to sleepyState.
                 setReportInterval(true); //the report interval is now set to a long time. (3 sec default) we wont be able to start a new app during this time.
@@ -306,9 +304,9 @@ namespace ShakeToStart
         {
             int i = (int)(SampleCount % 5);
 
-            measurementsX[i] = Convert.ToDouble(String.Format("{0,5:0.00}", reading.AccelerationX));
-            measurementsY[i] = Convert.ToDouble(String.Format("{0,5:0.00}", reading.AccelerationY));
-            measurementsZ[i] = Convert.ToDouble(String.Format("{0,5:0.00}", reading.AccelerationZ));
+            measurementsX[i] = Convert.ToDouble( String.Format("{0,5:0.00}", reading.AccelerationX) );
+            measurementsY[i] = Convert.ToDouble( String.Format("{0,5:0.00}", reading.AccelerationY) );
+            measurementsZ[i] = Convert.ToDouble( String.Format("{0,5:0.00}", reading.AccelerationZ) );
         }
     }
 }

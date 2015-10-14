@@ -21,7 +21,7 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.Scenario1_BackgroundTask">
           <BackgroundTasks>
             <Task Type="deviceUse" />
           </BackgroundTasks>
