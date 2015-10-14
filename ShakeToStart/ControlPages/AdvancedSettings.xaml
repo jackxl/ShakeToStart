@@ -8,11 +8,38 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Vertical">
-            <TextBlock x:Name="tbAdvancedSettingsHeader" Text="Advanced Settings"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+            <TextBlock x:Name="tbAdvancedSettingsHeader" Grid.Row="0" Text="Advanced Settings"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+        <StackPanel Grid.Row="1" Margin="8,8,8,0">
+            <TextBlock Text="Threshold"/>
             <TextBox InputScope="Number"></TextBox>
-            <TextBox InputScope="Number"></TextBox>
-            <TextBox InputScope="Number"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="8,8,8,0">
+            <TextBlock Text="Measurement interval"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox InputScope="Number" Grid.Column="0"></TextBox>
+                <TextBlock Text="ms" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Margin="8,8,8,0">
+            <TextBlock Text="Sleep time"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>                
+                <TextBox InputScope="Number" Grid.Column="0"></TextBox>
+                <TextBlock Text="s" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>
