@@ -23,7 +23,10 @@ namespace ShakeToStart.Model
         {
             new UriItem() { name = "Bing", uri = new Uri("http://Bing.com"), symbol = Symbol.Globe },
             new UriItem() { name = "Facebook", uri = new Uri("http://Facebook.com"), symbol = Symbol.PhoneBook },
-            new UriItem() { name = "Phone Settings", uri = new Uri("ms-settings:"), symbol = Symbol.Setting}
+            new UriItem() { name = "Phone Settings", uri = new Uri("ms-settings:"), symbol = Symbol.Setting},
+            new UriItem() { name = "Zune", uri = new Uri("zune:"), symbol = Symbol.Globe },
+            new UriItem() { name = "Wifi", uri = new Uri("ms-settings-wifi:"), symbol = Symbol.Globe },
+            new UriItem() { name = "Google", uri = new Uri("http://Google.com"), symbol = Symbol.Globe }
         };
     }
 }

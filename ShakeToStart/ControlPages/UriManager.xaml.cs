@@ -62,10 +62,12 @@ namespace ShakeToStart.ControlPages
             SymbolItem symbolitem = (SymbolItem)cbSymbols.SelectedItem;
             try
             {
+                string str = tbUri.Text.Contains("www.") ? "http://" + tbUri.Text : tbUri.Text;
+
                 UriItem item = new UriItem()
                 {
                     name = tbName.Text,
-                    uri = new Uri(tbUri.Text),
+                    uri = new Uri(str),
                     symbol = symbolitem.symbol
                 };
                 uriSelection.Add(item);

@@ -16,7 +16,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#C4D0F2">
         <!-- Navigation Bar and propeties -->
         <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay"
                    VerticalAlignment="Top" HorizontalAlignment="Left" Height="auto" >
