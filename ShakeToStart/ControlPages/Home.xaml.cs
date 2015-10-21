@@ -152,7 +152,7 @@ namespace ShakeToStart.ControlPages
 
         private void disableMenu()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void btnDisable_Click(object sender, RoutedEventArgs e)
