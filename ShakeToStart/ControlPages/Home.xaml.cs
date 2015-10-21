@@ -97,16 +97,22 @@ namespace ShakeToStart.ControlPages
             btnDisable.IsEnabled = isBackgroundTaskActive;
         }
 
-        private async void btnEnable_Click(object sender, RoutedEventArgs e)
+        private void btnEnable_Click(object sender, RoutedEventArgs e)
         {
-            //ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = 3.0;
-            //ApplicationData.Current.LocalSettings.Values["xUri"] = @"zune:";
-            //ApplicationData.Current.LocalSettings.Values["yUri"] = @"ms-settings-wifi:";
-            //ApplicationData.Current.LocalSettings.Values["zUri"] = @"http://facebook.com";
+            enableTask();
 
-            //ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = "100";
-            //ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = "3000";
+            setGuiElementState(false);
+        }
 
+        private void setGuiElementState(bool state)
+        {
+            cbUriX.IsEnabled = state;
+            cbUriY.IsEnabled = state;
+            cbUriZ.IsEnabled = state;
+        }
+
+        private async void enableTask()
+        {
             if (null != Accelerometer)
             {
                 // Make sure this app is allowed to run background tasks.
@@ -137,6 +143,8 @@ namespace ShakeToStart.ControlPages
         {
             btnEnable.IsEnabled = true;
             btnDisable.IsEnabled = false;
+
+            setGuiElementState(true);
 
             if (null != _deviceUseBackgroundTaskRegistration)
             {
