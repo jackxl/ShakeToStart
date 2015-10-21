@@ -47,7 +47,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbSleepTime" InputScope="Number" Grid.Column="0"></TextBox>
-                <TextBlock Text="s" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
+                <TextBlock Text="ms" Grid.Column="1" Margin="8,8,8,8"></TextBlock>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="4" Margin="8,8,8,8">
