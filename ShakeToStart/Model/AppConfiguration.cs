@@ -11,10 +11,6 @@ namespace ShakeToStart.Model
     /// </summary>
     class AppConfiguration
     {
-        public const double SHAKETHRESHOLD = 3.0;
-        public const int INTERVAL_WHEN_AWAKE = 100;
-        public const int INTERVAL_WHEN_ASLEEP = 3000;
-
         public const string X_URI = @"zune";
         public const string Y_URI = @"ms-settings-wifi";
         public const string Z_URI = @"http://facebook.com";

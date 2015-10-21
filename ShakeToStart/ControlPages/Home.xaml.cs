@@ -108,13 +108,13 @@ namespace ShakeToStart.ControlPages
 
         private async void btnEnable_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = 3.0;
-            ApplicationData.Current.LocalSettings.Values["xUri"] = @"zune:";
-            ApplicationData.Current.LocalSettings.Values["yUri"] = @"ms-settings-wifi:";
-            ApplicationData.Current.LocalSettings.Values["zUri"] = @"http://facebook.com";
+            //ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = 3.0;
+            //ApplicationData.Current.LocalSettings.Values["xUri"] = @"zune:";
+            //ApplicationData.Current.LocalSettings.Values["yUri"] = @"ms-settings-wifi:";
+            //ApplicationData.Current.LocalSettings.Values["zUri"] = @"http://facebook.com";
 
-            ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = "100";
-            ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = "3000";
+            //ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = "100";
+            //ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = "3000";
 
             if (null != Accelerometer)
             {

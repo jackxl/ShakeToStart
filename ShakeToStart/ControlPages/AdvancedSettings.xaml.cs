@@ -74,9 +74,9 @@ namespace ShakeToStart.ControlPages
         /// <param name="e"></param>
         private void Reset_Button_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = AppConfiguration.SHAKETHRESHOLD.ToString();
-            ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = AppConfiguration.INTERVAL_WHEN_ASLEEP.ToString();
-            ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = AppConfiguration.INTERVAL_WHEN_AWAKE.ToString();
+            ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = BackgroundTask.BackgroundTaskConfiguration.SHAKETHRESHOLD.ToString();
+            ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_ASLEEP.ToString();
+            ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_AWAKE.ToString();
         }
 
 
