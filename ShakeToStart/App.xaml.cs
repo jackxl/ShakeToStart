@@ -50,7 +50,11 @@ namespace ShakeToStart
         {
             if(!ApplicationData.Current.LocalSettings.Values.ContainsKey("uriItems"))
             {
-                //TODO add standard uris
+                List<UriItem> list = AppConfiguration.defaultUris;
+                foreach (UriItem item in list)
+                {
+                    uriItemsAvailable.Add(item);
+                }
                 return;
             }
 

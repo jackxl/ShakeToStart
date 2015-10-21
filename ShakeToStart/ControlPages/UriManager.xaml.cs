@@ -91,6 +91,7 @@ namespace ShakeToStart.ControlPages
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             uriSelection.Remove(e.ClickedItem as UriItem);
+            storeUriItemsToStorage();
         }
     }
 }
