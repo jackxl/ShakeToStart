@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace ShakeToStart.Model
-{
+namespace ShakeToStartShared
+{ 
     public class SymbolItem
     {
         public Symbol symbol { get; set; }

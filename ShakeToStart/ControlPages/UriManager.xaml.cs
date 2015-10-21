@@ -1,4 +1,5 @@
 ﻿using ShakeToStart.Model;
+using ShakeToStartShared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

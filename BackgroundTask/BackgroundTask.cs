@@ -1,5 +1,5 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
-
+using ShakeToStartShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -221,7 +221,8 @@ namespace BackgroundTask
             if (!string.IsNullOrEmpty(uri))
             {
                 //not awaiting this method because we are not waiting for a response.
-                Windows.System.Launcher.LaunchUriAsync(new Uri(uri));
+                Uri uriUri = UriItem.DesirializeUriString(uri).uri;
+                Windows.System.Launcher.LaunchUriAsync(uriUri);
                 // result is true. an app has been launched (or atleast the attempt has been made)
                 result = true;
             }

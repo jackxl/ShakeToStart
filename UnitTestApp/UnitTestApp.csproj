@@ -125,6 +125,10 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShakeToStartShared\ShakeToStartShared.csproj">
+      <Project>{7d4db753-ece2-447a-8656-a6bd13e1aa60}</Project>
+      <Name>ShakeToStartShared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShakeToStart\ShakeToStart.csproj">
       <Project>{2ece81ee-f751-4351-9456-a77f4c960655}</Project>
       <Name>ShakeToStart</Name>

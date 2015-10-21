@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using ShakeToStart.Model;
 using Windows.UI.Xaml.Controls;
+using ShakeToStartShared;
 
 namespace UnitTestApp
 {

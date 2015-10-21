@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Collections.ObjectModel;
 
-namespace ShakeToStart.Model
+namespace ShakeToStartShared
 {
     [DataContract]
     public class UriItem

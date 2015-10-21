@@ -1,4 +1,4 @@
-﻿using ShakeToStart.Model;
+﻿using ShakeToStartShared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -319,7 +319,8 @@ namespace ShakeToStart.ControlPages
             switch (type)
             {
                 case NotifyType.StatusMessage:
-                    StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                    StatusBorder.Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(Byte.MaxValue,22,34,59) );
+                    StatusBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
                     break;
                 case NotifyType.ErrorMessage:
                     StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Red);
