@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -68,11 +69,23 @@ namespace ShakeToStart.ControlPages
                     symbol = symbolitem.symbol
                 };
                 uriSelection.Add(item);
+                storeUriItemsToStorage();
             }
             catch
             {
-                
+                // something is wrong with the uri here.
             }
+        }
+
+        private void storeUriItemsToStorage()
+        {
+            List<String> serializedUriList = new List<String>();
+            foreach (UriItem item in uriSelection)
+            {
+                serializedUriList.Add(item.GetSerializedUriObject());
+            }
+
+            ApplicationData.Current.LocalSettings.Values["uriItems"] = serializedUriList.ToArray();
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)

@@ -9,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,8 +27,8 @@ namespace ShakeToStart
     {
         public static ObservableCollection<UriItem> uriItemsAvailable = new ObservableCollection<UriItem>()
         {
-            new UriItem() { name = "Bing", uri = new Uri("http://Bing.com"), symbol = Symbol.Globe },
-            new UriItem() { name = "Facebook", uri = new Uri("http://Facebook.com"), symbol = Symbol.PhoneBook },
+            //new UriItem() { name = "Bing", uri = new Uri("http://Bing.com"), symbol = Symbol.Globe },
+            //new UriItem() { name = "Facebook", uri = new Uri("http://Facebook.com"), symbol = Symbol.PhoneBook },
         };
 
         /// <summary>
@@ -41,6 +42,24 @@ namespace ShakeToStart
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            getUriItemsFromStorage();
+        }
+
+        private void getUriItemsFromStorage()
+        {
+            if(!ApplicationData.Current.LocalSettings.Values.ContainsKey("uriItems"))
+            {
+                //TODO add standard uris
+                return;
+            }
+
+            List<string> lret = ((string[])ApplicationData.Current.LocalSettings.Values["uriItems"]).ToList();
+
+            foreach (string str in lret)
+            {
+                uriItemsAvailable.Add(UriItem.DesirializeUriString(str));
+            }               
         }
 
         /// <summary>

@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="tbThreshold" InputScope="Number"></TextBox>
+                <TextBox x:Name="tbThreshold" InputScope="Number" PlaceholderText="3.0"></TextBox>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="8,8,8,0">
