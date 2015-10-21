@@ -26,10 +26,13 @@ namespace ShakeToStart.ControlPages
 {
 
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Startup Screen
     /// </summary>
     public sealed partial class Home : Page
     {
+        /// <summary>
+        /// Collection for databinding
+        /// </summary>
         private ObservableCollection<UriItem> uriSelection = new ObservableCollection<UriItem>();
 
         public static String TASKNAME = "ShakeToStart BackgroundTask";
@@ -60,12 +63,18 @@ namespace ShakeToStart.ControlPages
             }
         }
 
+        /// <summary>
+        /// All the uri comboboxes event.
+        /// Uris to be set in the local settings for usage in the background task.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbUri_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender.GetType() != typeof(ComboBox))
                 return;
             var obj = sender as ComboBox;
-            var item = (UriItem)obj.SelectedItem;
+            var item = obj.SelectedItem as UriItem;
             switch (obj.Name)
             {
                 case "cbUriX":
@@ -120,6 +129,8 @@ namespace ShakeToStart.ControlPages
                     {
                         btnEnable.IsEnabled = false;
                         btnDisable.IsEnabled = true;
+
+                        disableMenu();
                     }
                 }
                 else
@@ -131,6 +142,11 @@ namespace ShakeToStart.ControlPages
             {
                 NotifyUser("No accelerometer found", NotifyType.StatusMessage);
             }
+        }
+
+        private void disableMenu()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnDisable_Click(object sender, RoutedEventArgs e)

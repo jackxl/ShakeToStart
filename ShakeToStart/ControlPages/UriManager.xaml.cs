@@ -24,11 +24,15 @@ namespace ShakeToStart.ControlPages
     /// </summary>
     public sealed partial class UriManager : Page
     {
+        /// <summary>
+        /// Observable collections for databinding.
+        /// </summary>
         private ObservableCollection<UriItem> uriSelection = new ObservableCollection<UriItem>();
         private ObservableCollection<SymbolItem> symbolList = new ObservableCollection<SymbolItem>();
 
         public UriManager()
         {
+            //fil the list with the Global Uri items
             uriSelection = App.uriItemsAvailable;
             FillSymbolList();
             this.InitializeComponent();
@@ -69,14 +73,6 @@ namespace ShakeToStart.ControlPages
             {
                 
             }
-
-
-        }
-
-        private void ClearButton_Click(object sender, RoutedEventArgs e)
-        {
-            var obj = (Button) e.OriginalSource;
-//            var send = ()sender;
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)

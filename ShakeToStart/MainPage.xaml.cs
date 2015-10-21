@@ -49,7 +49,6 @@ namespace ShakeToStart
             this.InitializeComponent();
             this.MainFrame.Navigate(typeof(Home));
 
-
             var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
             splitView.Height = bounds.Height;
         }
@@ -72,6 +71,11 @@ namespace ShakeToStart
             }
         }
 
+        /// <summary>
+        /// Toggle splitview slider menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btHamburger_Click(object sender, RoutedEventArgs e)
         {
             splitView.IsPaneOpen = !splitView.IsPaneOpen;

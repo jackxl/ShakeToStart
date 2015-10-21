@@ -28,8 +28,34 @@ namespace ShakeToStart.ControlPages
         public AdvancedSettings()
         {
             this.InitializeComponent();
+            SetPlaceholderText();
         }
 
+        /// <summary>
+        /// Set the placeholder text so the user doesn't see a empty screen
+        /// </summary>
+        private void SetPlaceholderText()
+        {
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("shakeThreshold"))
+            {
+                tbThreshold.PlaceholderText = ApplicationData.Current.LocalSettings.Values["shakeThreshold"].ToString();
+            }
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("intervalWhenAsleep"))
+            {
+                tbSleepTime.PlaceholderText = ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"].ToString();
+            }
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("intervalWhenAwake"))
+            {
+                tbMeasurementInterval.PlaceholderText = ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"].ToString();
+            }
+        }
+
+        /// <summary>
+        /// Apply the advanced settings to local settings value.
+        /// If a settings box is empty it doesn't add it to the local settings value.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Apply_Button_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(tbThreshold.Text))
@@ -40,6 +66,12 @@ namespace ShakeToStart.ControlPages
                 ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = tbMeasurementInterval.Text;
         }
 
+        /// <summary>
+        /// Reset the local settings value to default.
+        /// For a user who may mess up.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Reset_Button_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = AppConfiguration.SHAKETHRESHOLD.ToString();
