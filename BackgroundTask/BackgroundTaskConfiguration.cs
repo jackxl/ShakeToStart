@@ -6,10 +6,34 @@ using System.Threading.Tasks;
 
 namespace BackgroundTask
 {
-    public class BackgroundTaskConfiguration
+    public static class BackgroundTaskConfiguration
     {
-        public const double SHAKETHRESHOLD = 3.0;
-        public const int INTERVAL_WHEN_AWAKE = 100;
-        public const int INTERVAL_WHEN_ASLEEP = 3000;
+        //public static readonly double SHAKETHRESHOLD = 3.0;
+        //public static readonly int INTERVAL_WHEN_AWAKE = 100;
+        //public static readonly int INTERVAL_WHEN_ASLEEP = 3000;
+
+        public static double SHAKETHRESHOLD
+        {
+            get
+            {
+                return 3.0;
+            }
+        }
+
+        public static int INTERVAL_WHEN_AWAKE
+        {
+            get
+            {
+                return 100;
+            }
+        }
+
+        public static int INTERVAL_WHEN_ASLEEP
+        {
+            get
+            {
+                return 3000;
+            }
+        }
     }
 }

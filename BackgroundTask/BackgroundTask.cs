@@ -21,8 +21,8 @@ namespace BackgroundTask
         private ulong SampleCount;
 
         bool appHasLaunched = false;
-        uint awakeTime = BackgroundTaskConfiguration.INTERVAL_WHEN_AWAKE;
-        uint sleepTime = BackgroundTaskConfiguration.INTERVAL_WHEN_ASLEEP;
+        uint awakeTime = (uint) BackgroundTaskConfiguration.INTERVAL_WHEN_AWAKE;
+        uint sleepTime = (uint) BackgroundTaskConfiguration.INTERVAL_WHEN_ASLEEP;
         double shakeThreshold = BackgroundTaskConfiguration.SHAKETHRESHOLD;
 
         double[] measurementsX = new double[5];
