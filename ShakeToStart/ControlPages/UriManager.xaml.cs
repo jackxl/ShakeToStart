@@ -87,7 +87,14 @@ namespace ShakeToStart.ControlPages
                 serializedUriList.Add(item.GetSerializedUriObject());
             }
 
-            ApplicationData.Current.LocalSettings.Values["uriItems"] = serializedUriList.ToArray();
+            if (serializedUriList.Count != 0)
+            {
+                ApplicationData.Current.LocalSettings.Values["uriItems"] = serializedUriList.ToArray();
+            }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values.Remove("uriItems");
+            }
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)

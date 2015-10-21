@@ -24,17 +24,32 @@ namespace UnitTestApp
         }
 
         [TestMethod]
-        public void TestSerializeAndDeserializeUri()
+        public void TestSerializeAndDeserializeUriLocal()
         {
             UriItem uriItem = new UriItem();
             uriItem.name = "test";
-            uriItem.uri = new Uri("http://www.test.com");
+            uriItem.uri = new Uri("ms-settings:");
             uriItem.symbol = (Symbol)10;
 
             string serializedUriItem = uriItem.GetSerializedUriObject();
 
             UriItem newUriItem = UriItem.DesirializeUriString(serializedUriItem);
             
+            Assert.AreEqual<Uri>(uriItem.uri, newUriItem.uri);
+        }
+
+        [TestMethod]
+        public void TestSerializeAndDeserializeUriExternal()
+        {
+            UriItem uriItem = new UriItem();
+            uriItem.name = "test";
+            uriItem.uri = new Uri("http://www.google.com");
+            uriItem.symbol = (Symbol)10;
+
+            string serializedUriItem = uriItem.GetSerializedUriObject();
+
+            UriItem newUriItem = UriItem.DesirializeUriString(serializedUriItem);
+
             Assert.AreEqual<Uri>(uriItem.uri, newUriItem.uri);
         }
 

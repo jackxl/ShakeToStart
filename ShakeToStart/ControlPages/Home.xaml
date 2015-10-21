@@ -23,7 +23,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">        
+        <StackPanel Grid.Row="0">
             <TextBlock x:Name="tbHomeHeader" Text="Home"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
             <TextBlock x:Name="tbDescriptionBody" Text="Before you start you have to press enable." TextWrapping="WrapWholeWords" Margin="8,8,8,0"></TextBlock>
         </StackPanel>
@@ -31,7 +31,7 @@
             <Button x:Name="btnEnable" Height="32" Width="156" Content="Enable" Margin="8,8,8,8" Click="btnEnable_Click" />
             <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable"  RelativePanel.RightOf="btnEnable" Margin="8,8,8,8" HorizontalAlignment="Right" RelativePanel.AlignRightWithPanel="True" Click="btnDisable_Click"/>
         </RelativePanel>
-        <RelativePanel Grid.Row="2" Margin="8,8,8,8">       
+        <RelativePanel Grid.Row="2" Margin="8,8,8,8">
             <TextBlock x:Name="tbUriX" Text="Action x: " Margin="0,16,8,0"/>
             <ComboBox x:Name="cbUriX" ItemTemplate="{StaticResource UriItemTemplate}" 
                       ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriX" 
@@ -40,6 +40,7 @@
             <ComboBox x:Name="cbUriY" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.Below="cbUriX" RelativePanel.RightOf="tbUriY" Width="212" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
             <TextBlock x:Name="tbUriZ" Text="Action z: " Margin="0,16,8,0" RelativePanel.Below="tbUriY"/>
             <ComboBox x:Name="cbUriZ" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriZ" RelativePanel.Below="cbUriY" Width="212" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="321" Source="ms-appx:///Assets/axes.png" Margin="0,137,-321,-435"/>
         </RelativePanel>
 
         <StackPanel Grid.Row="3" x:Name="StatusPanel" Orientation="Vertical">

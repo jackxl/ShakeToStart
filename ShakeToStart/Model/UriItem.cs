@@ -24,7 +24,7 @@ namespace ShakeToStart.Model
         //TODO: this thing
         //DataContractJsonSerializer
 
-        public const string SERIALIZEDHEADER = "UriItem::";
+        public const string SERIALIZEDHEADER = "UriItem;;";
         public const string SERIALIZEDFOOTER = "/UriItem";
 
         private const int SEPARATOR_SIZE = 2;
@@ -34,11 +34,11 @@ namespace ShakeToStart.Model
             String result = SERIALIZEDHEADER;
 
             result += name;
-            result += "::";
+            result += ";;";
             result += uri.ToString();
-            result += "::";
+            result += ";;";
             result += ((int)symbol).ToString();
-            result += "::";
+            result += ";;";
             result += SERIALIZEDFOOTER;
 
             return result;
@@ -108,10 +108,11 @@ namespace ShakeToStart.Model
 
             foreach (char c in UriObjectBody)
             {
-                if (c == ':') //if the char is : check if the last char also was :
+                if (c == ';') //if the char is ; check if the last char also was ;
                 {
                     if (previousCharWasSemicolon) // if yes. break. cause the name is finished
                     {
+
                         part = part.Remove(part.Length - 1);
                         break;
                     }
