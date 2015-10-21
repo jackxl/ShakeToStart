@@ -40,13 +40,25 @@ namespace ShakeToStart.ControlPages
             {
                 tbThreshold.PlaceholderText = ApplicationData.Current.LocalSettings.Values["shakeThreshold"].ToString();
             }
+            else
+            {
+                tbThreshold.PlaceholderText = BackgroundTask.BackgroundTaskConfiguration.SHAKETHRESHOLD.ToString() + ".0";
+            }
             if (ApplicationData.Current.LocalSettings.Values.ContainsKey("intervalWhenAsleep"))
             {
                 tbSleepTime.PlaceholderText = ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"].ToString();
             }
+            else
+            {
+                tbSleepTime.PlaceholderText = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_ASLEEP.ToString();
+            }
             if (ApplicationData.Current.LocalSettings.Values.ContainsKey("intervalWhenAwake"))
             {
                 tbMeasurementInterval.PlaceholderText = ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"].ToString();
+            }
+            else
+            {
+                tbMeasurementInterval.PlaceholderText = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_AWAKE.ToString();
             }
         }
 
@@ -74,9 +86,12 @@ namespace ShakeToStart.ControlPages
         /// <param name="e"></param>
         private void Reset_Button_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = BackgroundTask.BackgroundTaskConfiguration.SHAKETHRESHOLD.ToString();
+            String shakeThresholdString = BackgroundTask.BackgroundTaskConfiguration.SHAKETHRESHOLD.ToString();
+            ApplicationData.Current.LocalSettings.Values["shakeThreshold"] = shakeThresholdString.Contains('.') ? shakeThresholdString : shakeThresholdString + ".0";
             ApplicationData.Current.LocalSettings.Values["intervalWhenAsleep"] = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_ASLEEP.ToString();
             ApplicationData.Current.LocalSettings.Values["intervalWhenAwake"] = BackgroundTask.BackgroundTaskConfiguration.INTERVAL_WHEN_AWAKE.ToString();
+
+            SetPlaceholderText();
         }
 
 

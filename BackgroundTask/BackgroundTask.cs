@@ -218,7 +218,7 @@ namespace BackgroundTask
             }
 
             //launch the uri that has been set. if it has been set.
-            if (uri.Length > 1)
+            if (!string.IsNullOrEmpty(uri))
             {
                 //not awaiting this method because we are not waiting for a response.
                 Windows.System.Launcher.LaunchUriAsync(new Uri(uri));
