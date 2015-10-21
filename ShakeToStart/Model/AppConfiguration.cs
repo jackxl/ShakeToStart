@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShakeToStart.Model
 {
+    /// <summary>
+    /// AppConfiguration in case there is no data use this.
+    /// </summary>
     class AppConfiguration
     {
         public const string X_URI = @"zune";
@@ -14,7 +17,5 @@ namespace ShakeToStart.Model
 
         public const string BACKGROUND_TASKNAME = "ShakeToStart BackgroundTask";
         public const string BACKGROUND_TAKS_ENTRYPOINT = "BackgroundTask.BackgroundTask";
-
-
     }
 }

@@ -32,13 +32,13 @@
             <Button x:Name="btnDisable" Height="32" Width="156" Content="Disable"  RelativePanel.RightOf="btnEnable" Margin="8,8,8,8" HorizontalAlignment="Right" RelativePanel.AlignRightWithPanel="True" Click="btnDisable_Click"/>
         </RelativePanel>
         <RelativePanel Grid.Row="2" Margin="8,8,8,8">       
-            <TextBlock x:Name="tbUriX" Text="Uri x: " Margin="0,16,8,0"/>
+            <TextBlock x:Name="tbUriX" Text="Action x: " Margin="0,16,8,0"/>
             <ComboBox x:Name="cbUriX" ItemTemplate="{StaticResource UriItemTemplate}" 
                       ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriX" 
                       Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged" />
-            <TextBlock x:Name="tbUriY" Text="Uri y: " Margin="0,16,8,0" RelativePanel.Below="tbUriX"/>
+            <TextBlock x:Name="tbUriY" Text="Action y: " Margin="0,16,8,0" RelativePanel.Below="tbUriX"/>
             <ComboBox x:Name="cbUriY" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.Below="cbUriX" RelativePanel.RightOf="tbUriY" Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
-            <TextBlock x:Name="tbUriZ" Text="Uri z: " Margin="0,16,8,0" RelativePanel.Below="tbUriY"/>
+            <TextBlock x:Name="tbUriZ" Text="Action z: " Margin="0,16,8,0" RelativePanel.Below="tbUriY"/>
             <ComboBox x:Name="cbUriZ" ItemTemplate="{StaticResource UriItemTemplate}" ItemsSource="{x:Bind uriSelection}" RelativePanel.RightOf="tbUriZ" RelativePanel.Below="cbUriY" Width="256" Margin="0,8,0,0" SelectionChanged="cbUri_SelectionChanged"/>
         </RelativePanel>
 
