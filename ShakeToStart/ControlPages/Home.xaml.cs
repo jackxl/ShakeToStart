@@ -49,6 +49,8 @@ namespace ShakeToStart.ControlPages
             uriSelection = App.uriItemsAvailable;
             this.InitializeComponent();
 
+            SetUrisInCombobox();
+
             Accelerometer = Accelerometer.GetDefault();
             if (null != Accelerometer)
             {
@@ -60,6 +62,17 @@ namespace ShakeToStart.ControlPages
             else
             {
                 this.NotifyUser("No accelerometer found", NotifyType.StatusMessage);
+            }
+        }
+
+        private void SetUrisInCombobox()
+        {
+            //TODO: fix this somehow?
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("xUri")) {
+                string str = ApplicationData.Current.LocalSettings.Values["xUri"].ToString();
+                UriItem item = UriItem.DesirializeUriString(str);
+                
+                cbUriX.SelectedValue = item;
             }
         }
 
@@ -78,13 +91,13 @@ namespace ShakeToStart.ControlPages
             switch (obj.Name)
             {
                 case "cbUriX":
-                    ApplicationData.Current.LocalSettings.Values["xUri"] = item.uri.ToString();
+                    ApplicationData.Current.LocalSettings.Values["xUri"] = item.GetSerializedUriObject();
                     break;
                 case "cbUriY":
-                    ApplicationData.Current.LocalSettings.Values["yUri"] = item.uri.ToString();
+                    ApplicationData.Current.LocalSettings.Values["yUri"] = item.GetSerializedUriObject();
                     break;
                 case "cbUriZ":
-                    ApplicationData.Current.LocalSettings.Values["zUri"] = item.uri.ToString();
+                    ApplicationData.Current.LocalSettings.Values["zUri"] = item.GetSerializedUriObject();
                     break;
             }
         }

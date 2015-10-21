@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
+    <StackPanel Background="#C4D0F2">
         <TextBlock x:Name="tbHelpHeader" Text="Help"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
     </StackPanel>
 
