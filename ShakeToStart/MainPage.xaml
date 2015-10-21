@@ -21,12 +21,12 @@
         <SplitView x:Name="splitView" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactOverlay"
                    VerticalAlignment="Top" HorizontalAlignment="Left" Height="auto" >
             <SplitView.Pane>
-                <Grid x:Name="svCollapsed" >
+                <Grid x:Name="svCollapsed" Background="#0597F2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Button x:Name="btHamburger" Background="Blue" Width="48" Height="48" Click="btHamburger_Click">
+                    <Button x:Name="btHamburger" Background="#0583F2" Width="48" Height="48" Click="btHamburger_Click">
                         <Button.Content>
                             <FontIcon x:Name="hamburger" FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"></FontIcon>
                         </Button.Content>
@@ -38,7 +38,7 @@
                 </Grid>
             </SplitView.Pane>
             <!-- Content on the main screen -->
-            <Frame x:Name="MainFrame" Height="Auto">
+            <Frame x:Name="MainFrame" Height="Auto" Background="#C4D0F2">
 
             </Frame>
         </SplitView>

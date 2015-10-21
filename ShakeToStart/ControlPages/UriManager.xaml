@@ -28,7 +28,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="#C4D0F2">
         <TextBlock x:Name="tbUriManagerHeader" Text="Uri Manager"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
         
 
