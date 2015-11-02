@@ -9,6 +9,42 @@
 
     <StackPanel Background="#C4D0F2">
         <TextBlock x:Name="tbHelpHeader" Text="Help"  Margin="12,12,0,0" FontWeight="ExtraBold"></TextBlock>
+
+        <StackPanel Margin="20,20">
+            <TextBlock Text="About ShakeToStart" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="This app was build for the Minor Mobile App Development." TextWrapping="WrapWholeWords"></TextBlock>
+            <TextBlock Text="By Jack Evers &amp; Jelle Braat"></TextBlock>
+        </StackPanel>
+        <StackPanel Margin="20, 20">
+            <TextBlock Text="How it works" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="The idea is very simplistic. You bind an app in any direction you can shake your phone. If you shake your phone in that direction. It will launch the app for you!" TextWrapping="WrapWholeWords"></TextBlock>
+        </StackPanel>
+        
+        <StackPanel Margin="20,20">
+            <TextBlock Text="What is..." FontWeight="Bold"></TextBlock>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" MaxWidth="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Uri"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="A name that can contain information (example www.Google.com)" TextWrapping="WrapWholeWords" Margin="8,0,0,0"></TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Background task"></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="A task that can launch on te background (example shaking your phone)" TextWrapping="WrapWholeWords" Margin="8,0,0,0"></TextBlock>
+            </Grid>
+        </StackPanel>
+        
     </StackPanel>
 
 </Page>
+
+    

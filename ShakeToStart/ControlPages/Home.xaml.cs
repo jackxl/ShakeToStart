@@ -49,7 +49,6 @@ namespace ShakeToStart.ControlPages
             uriSelection = App.uriItemsAvailable;
             this.InitializeComponent();
 
-            SetUrisInCombobox();
 
             Accelerometer = Accelerometer.GetDefault();
             if (null != Accelerometer)
@@ -63,16 +62,39 @@ namespace ShakeToStart.ControlPages
             {
                 this.NotifyUser("No accelerometer found", NotifyType.StatusMessage);
             }
+
+            this.Loaded += Home_Loaded;
+
+        }
+
+        private void Home_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetUrisInCombobox();
         }
 
         private void SetUrisInCombobox()
         {
-            //TODO: fix this somehow?
-            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("xUri")) {
-                string str = ApplicationData.Current.LocalSettings.Values["xUri"].ToString();
-                UriItem item = UriItem.DesirializeUriString(str);
-                
-                cbUriX.SelectedValue = item;
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("xUri") 
+                && ApplicationData.Current.LocalSettings.Values.ContainsKey("yUri")
+                && ApplicationData.Current.LocalSettings.Values.ContainsKey("zUri"))
+            {
+                string strX = ApplicationData.Current.LocalSettings.Values["xUri"].ToString();
+                string strY = ApplicationData.Current.LocalSettings.Values["yUri"].ToString();
+                string strZ = ApplicationData.Current.LocalSettings.Values["zUri"].ToString();
+                UriItem itemX = UriItem.DesirializeUriString(strX);
+                UriItem itemY = UriItem.DesirializeUriString(strY);
+                UriItem itemZ = UriItem.DesirializeUriString(strZ);
+
+                for (int i = 0; i < uriSelection.Count; i++)
+                {
+                    if (uriSelection[i].uri == itemX.uri)
+                        cbUriX.SelectedIndex = i;
+                    if (uriSelection[i].uri == itemY.uri)
+                        cbUriY.SelectedIndex = i;
+                    if (uriSelection[i].uri == itemZ.uri)
+                        cbUriZ.SelectedIndex = i; 
+                }
+
             }
         }
 
